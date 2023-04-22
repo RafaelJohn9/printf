@@ -26,30 +26,16 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'c')
 			{
 				x = (unsigned char)va_arg(list, int);
-				if (x)
-				{
-					write(1, &x, 1);
-					sum++;
-					i = i + 2;
-				}
-				else
-				{
-					return (0);
-				}
+				write(1, &x, 1);
+				sum++;
+				i = i + 2;
 			}
 			else if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
-				if(str != NULL)
-				{
-					write(1, str, strlen(str));
-					sum =sum + strlen(str);
-					i = i + 2;
-				}
-				else
-				{
-					return (0);
-				}
+				write(1, str, strlen(str));
+				sum =sum + strlen(str);
+				i = i + 2;
 			}
 			else if (format[i + 1] == '%')
 			{
