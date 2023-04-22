@@ -28,23 +28,24 @@ int _printf(const char *format, ...)
 				x = (unsigned char) va_arg(list, int);
 				write(1, &x, 1);
 				sum++;
+				i++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				write(1, va_arg(list, char *), sizeof(char *));
 				sum += strlen(va_arg(list, char *));
+				i++;
 			}
 			else if (format[i + 1] == '%')
 			{
 				write(1, &format[i + 1], 1);
 				sum++;
+				i++;
 			}
 			else
 			{
 				write(1, &format[i], 1);
-				continue;
 			}
-			i++;
 		}
 		else
 		{
