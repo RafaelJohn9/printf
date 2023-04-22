@@ -9,11 +9,11 @@
 /**
  * _printf-produces output according to a format
  * @format:formats used
- * Return: int type 
+ * Return: int type
  */
 int _printf(const char *format, ...)
 {
-	char x;
+	unsigned char x;
 	int sum = 0;
 	int i = 0;
 	va_list list;
@@ -25,14 +25,14 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 'c')
 			{
-				x = (char) va_arg(list, int);
+				x = (unsigned char) va_arg(list, int);
 				write(1, &x, 1);
 				sum++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				write(1, va_arg(list, char *), sizeof(char *));
-				sum++;
+				sum += strlen(va_arg(list, char *));
 			}
 			else if (format[i + 1] == '%')
 			{
@@ -44,13 +44,15 @@ int _printf(const char *format, ...)
 				write(1, &format[i], 1);
 				continue;
 			}
+			i++;
 		}
-		else if (format[i - 1] != '%')
+		else
 		{
 			write(1, &format[i], 1);
+			sum++;
 		}
 		i++;
 	}
 	va_end(list);
 	return (sum);
-}
+}	
