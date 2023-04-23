@@ -26,30 +26,16 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'c')
 			{
 				x = (unsigned char)va_arg(list, int);
-				if (x)
-				{
-					write(1, &x, 1);
-					sum++;
-					i = i + 2;
-				}
-				else
-				{
-					exit(0);
-				}
+				write(1, &x, 1);
+				sum++;
+				i = i + 2;
 			}
 			else if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
-				if (str)
-				{
-					write(1, str, strlen(str));
-					sum =sum + strlen(str);
-					i = i + 2;
-				}
-				else
-				{
-					exit(0);
-				}
+				write(1, str, strlen(str));
+				sum =sum + strlen(str);
+				i = i + 2;
 			}
 			else if (format[i + 1] == '%')
 			{
@@ -60,16 +46,9 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				num = va_arg(list, int);
-				if (num)
-				{
-					a =_print_int(format + i,num);
-					sum += a;
-					i += 2;
-				}
-				else
-				{
-					exit(0);
-				}
+				a =_print_int(format + i,num);
+				sum += a;
+				i += 2;
 			}
 			else
 			{
