@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 			{
 				str = va_arg(list, char *);
 				write(1, str, strlen(str));
-				sum =sum + strlen(str);
+				sum = sum + strlen(str);
 				i = i + 2;
 			}
 			else if (format[i + 1] == '%')
@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				num = va_arg(list, int);
-				a =_print_int(format + i,num);
+				a = _print_int(format + i, num);
 				sum += a;
 				i += 2;
 			}
@@ -65,4 +65,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (sum);
-}	
+}
