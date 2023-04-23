@@ -34,7 +34,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					return (0);
+					exit(0);
 				}
 			}
 			else if (format[i + 1] == 's')
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					return (0);
+					exit(0);
 				}
 			}
 			else if (format[i + 1] == '%')
@@ -68,7 +68,7 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					return (0);
+					exit(0);
 				}
 			}
 			else
