@@ -28,37 +28,32 @@ void _print(int holder)
 }
 
 /**
- * _printf - prints d and i conversion specifiers
+ * _print_int - prints d and i conversion specifiers
  *
  * @format: a charcter string
  * Return: the number of characters printed
  */
-int _printf(const char *format, ...)
+int _print_int(const char *str, ...)
 {
 	int count = 0;
 	int holder;
 	va_list list;
 
-	va_start(list, format);
+	va_start(list, str);
 
-	while (*format != '\0')
+	while (*str != '\0')
 	{
-		if (*format == '%')
+		if (*str == '%')
 		{
-			format++;
-			if (*format == 'd' || *format == 'i')
+			str++;
+			if (*str == 'd' || *str == 'i')
 			{
 				holder = va_arg(list, int);
 				_print(holder);
 				count++;
 			}
 		}
-		else
-		{
-			_putchar(*format);
-			count++;
-		}
-		format++;
+		str++;
 	}
 	va_end(list);
 	return (count);

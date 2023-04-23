@@ -14,7 +14,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned char x;
-	int sum = 0, i = 0;
+	int sum = 0, i = 0, a = 0;
 	va_list list;
 	char *str;
 
@@ -42,6 +42,13 @@ int _printf(const char *format, ...)
 				write(1, &format[i + 1], 1);
 				sum++;
 				i = i + 2;
+			}
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			{
+				int num = va_arg(list, int);
+				a =_print_int(format + i,num);
+				sum += a;
+				i += 2;
 			}
 			else
 			{
