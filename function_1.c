@@ -1,10 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdint.h>
-
 
 /**
  * _printf-produces output according to a format
@@ -14,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	unsigned char x;
-	int sum = 0, i = 0, a = 0, num;
+	int sum = 0, i = 0, a = 0, num = 0;
 	va_list list;
 	char *str;
 
@@ -46,7 +40,7 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				num = va_arg(list, int);
-				a = _print_int(format + i, num);
+				a = _print_int(format + 1, num);
 				sum += a;
 				i += 2;
 			}

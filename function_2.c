@@ -16,10 +16,18 @@ void _print(int holder)
 		_putchar('-');
 		holder = -holder;
 	}
-	do {
+
+	if (holder == 0)
+	{
+		_putchar('0');
+		return;
+	}
+
+	while (holder > 0)
+	{
 		buffer[i++] = holder % 10 + '0';
 		holder /= 10;
-	} while (holder > 0);
+	}
 
 	while (--i >= 0)
 	{
@@ -30,7 +38,7 @@ void _print(int holder)
 /**
  * _print_int - prints d and i conversion specifiers
  *
- * @format: a charcter string
+ * @str: a charcter string
  * Return: the number of characters printed
  */
 int _print_int(const char *str, ...)
@@ -38,22 +46,37 @@ int _print_int(const char *str, ...)
 	int count = 0;
 	int holder;
 	va_list list;
+	const char *ptr;
+
+	if (str == NULL)
+		return (-1);
 
 	va_start(list, str);
 
-	while (*str != '\0')
+	for  (ptr = str; *ptr != '\0'; ptr++)
 	{
-		if (*str == '%')
+		if (*ptr == '%')
 		{
-			str++;
-			if (*str == 'd' || *str == 'i')
+			ptr++;
+			if (*ptr == '\0')
+				return (-1);
+
+			else if (*ptr == 'd' || *ptr == 'i')
 			{
 				holder = va_arg(list, int);
 				_print(holder);
 				count++;
 			}
+			else
+			{
+				return (-1);
+			}
 		}
-		str++;
+		else
+		{
+			_putchar(*ptr);
+			count++;
+		}
 	}
 	va_end(list);
 	return (count);
