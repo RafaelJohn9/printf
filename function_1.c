@@ -14,9 +14,10 @@
 int _printf(const char *format, ...)
 {
 	unsigned char x;
-	int sum = 0, i = 0, a = 0, num;
+	int sum = 0, i = 0, a = 0, num, len;
 	va_list list;
 	char *str;
+	unsigned int b;
 
 	va_start(list, format);
 	while (format && format[i])
@@ -33,9 +34,20 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
-				write(1, str, strlen(str));
-				sum = sum + strlen(str);
-				i = i + 2;
+				if (str == NULL)
+				{
+					str = "(null)";
+					len = strlen(str);
+					write(1, str, strlen(str));
+					sum += len;
+				}
+				else
+				{
+					len = strlen(str);
+					write(1, str, strlen(str));
+					sum += len;
+					i = i + 2;
+				}
 			}
 			else if (format[i + 1] == '%')
 			{
