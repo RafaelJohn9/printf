@@ -55,6 +55,11 @@ int _printf(const char *format, ...)
 				sum += a;
 				i += 2;
 			}
+			else if (format[i + 1] == '%')
+			{
+				_putchar('%');
+				i++;
+			}
 			else
 			{
 				write(1, &format[i], 1);
