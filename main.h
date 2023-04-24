@@ -11,6 +11,7 @@
 #include <unistd.h>
 int _printf(const char *format, ...);
 int _putchar(char c);
+int string(va_list list);
 int _strprint(char *str);
 int _print_int(const char *str, ...);
 #endif
