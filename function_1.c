@@ -36,10 +36,8 @@ int _printf(const char *format, ...)
 				if (str == NULL)
 				{
 					str = "(null)";
-					len = strlen(str);
 					write(1, str, strlen(str));
-					sum += len;
-					return (0);
+					return (sum);
 				}
 				else
 				{
