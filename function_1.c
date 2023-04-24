@@ -17,7 +17,6 @@ int _printf(const char *format, ...)
 	int sum = 0, i = 0, a = 0, num, len;
 	va_list list;
 	char *str;
-	unsigned int b;
 
 	va_start(list, format);
 	while (format && format[i])
