@@ -39,6 +39,7 @@ int _printf(const char *format, ...)
 					len = strlen(str);
 					write(1, str, strlen(str));
 					sum += len;
+					return (0);
 				}
 				else
 				{
