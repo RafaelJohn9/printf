@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 			{
 				sum += string(list);
 				i = i + 2;
+				string(list);
 			}
 			else if (format[i + 1] == '%')
 			{
