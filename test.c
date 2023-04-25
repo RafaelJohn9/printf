@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	_printf("you  better work number: %d", -7);
+	_printf("you  better work number: %6d", -7);
 	return (0);
 }
