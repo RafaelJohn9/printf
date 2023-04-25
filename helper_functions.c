@@ -45,6 +45,11 @@ int printint(va_list list)
 	int holder;
 
 	holder = va_arg(list, int);
+	if (holder < 0)
+	{
+		write(1, "-", 1);
+		holder = -holder;
+	}
 
 	return (_print_int("%d", holder));
 }
