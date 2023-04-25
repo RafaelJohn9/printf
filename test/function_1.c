@@ -8,7 +8,6 @@ int _printf(const char *format, ...)
 {
 	unsigned char x;
 	int sum = 0, i = 0, a = 0;
-
 	va_list list;
 
 	va_start(list, format);
@@ -39,11 +38,6 @@ int _printf(const char *format, ...)
 				a = _print_int(format + 1, va_arg(list, int));
 				sum += a;
 				i += 2;
-			}
-			else if (format[i + 1] == '%')
-			{
-				_putchar('%');
-				i++;
 			}
 			else
 			{
