@@ -25,6 +25,14 @@ int _printf(const char *format, ...)
 				}
 				format++;
 			}
+			if (format[i + 2] > 48 && format[i + 2] <= 57)
+			{
+				for (j = 0; j < format[i + 2] - 48; j++)
+				{
+					write(1, &format[i + 1], 1);
+				}
+				format += 2;
+			}
 			f_pointer = get_function(format[i + 1]);
 			if (f_pointer != NULL)
 			{
