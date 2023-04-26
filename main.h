@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <limits.h>
 
 /*FUNCTION PROTOTYPES*/
 int _printf(const char *format, ...);
@@ -16,6 +17,7 @@ int string(va_list list);
 int _strprint(char *str);
 int _print_int(const char *str, ...);
 int (*get_function(char chr))(va_list);
+/*int _print_int(int holder);*/
 
 /*HELPER FUNCTIONS*/
 int print_percent(va_list list);
