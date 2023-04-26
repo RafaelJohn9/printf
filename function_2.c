@@ -60,7 +60,7 @@ int _print_int(const char *str, ...)
 			else if (*ptr == 'd' || *ptr == 'i')
 			{
 				holder = va_arg(list, int);
-				return(_print(holder));
+				return (_print(holder));
 			}
 			else
 			{
