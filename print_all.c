@@ -12,19 +12,15 @@ int _printf(const char *format, ...)
 	int i = 0, len, sum, j;
 	int (*f_pointer)(va_list);
 
+	if (format == NULL)
+	{
+		return (0);
+	}
 	va_start(list, format);
 	while (format && format[i])
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] > 48 && format[i + 1] <= 57)
-			{
-				for (j = 0; j < format[i + 1] - 48; j++)
-				{
-					write(1, " ", 1);
-				}
-				format++;
-			}
 			f_pointer = get_function(format[i + 1]);
 			if (f_pointer != NULL)
 			{
