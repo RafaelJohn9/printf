@@ -45,7 +45,7 @@ int printint(va_list list)
 	int holder;
 
 	holder = va_arg(list, int);
-	if (holder < 0)
+	if ((holder < 0) && (holder != INT_MIN))
 	{
 		write(1, "-", 1);
 		holder = -holder;
