@@ -13,12 +13,12 @@ int _printf(const char *format, ...)
 	int sum = 0;
 	int (*f_pointer)(va_list);
 
-	va_start(list, format);
-	if (format == NULL || *format == '%')
+	if ((format == NULL) || (format[0] == '%' && format[1] == '\0'))
 	{
 		return (-1);
 	}
-	/*va_start(list, format);*/
+
+	va_start(list, format);
 	while (format && format[i])
 	{
 		if (format[i] == '%')
