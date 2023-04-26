@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _print - converts integer values to string then prints
@@ -16,6 +15,15 @@ int _print(int holder)
 	{
 		_putchar('0');
 		return (1);
+	}
+
+	if (holder == INT_MIN)
+	{
+		_putchar('-');
+		count++;
+		holder = -(holder + 1);
+		buffer[i++] = (holder % 10) + '1';
+		holder /= 10;
 	}
 
 	while (holder > 0)
