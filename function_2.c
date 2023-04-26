@@ -43,6 +43,7 @@ int _print_int(const char *str, ...)
 	int holder;
 	va_list list;
 	const char *ptr;
+	int count = 0;
 
 	if (str == NULL)
 		return (-1);
@@ -60,7 +61,7 @@ int _print_int(const char *str, ...)
 			else if (*ptr == 'd' || *ptr == 'i')
 			{
 				holder = va_arg(list, int);
-				return (_print(holder));
+				count += _print(holder);
 			}
 			else
 			{
@@ -70,8 +71,9 @@ int _print_int(const char *str, ...)
 		else
 		{
 			_putchar(*ptr);
+			count++;
 		}
 	}
 	va_end(list);
-	return (0);
+	return (count);
 }

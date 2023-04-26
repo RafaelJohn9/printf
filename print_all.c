@@ -9,7 +9,8 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i = 0, len, sum;
+	int i = 0, len;
+	int sum = 0;
 	int (*f_pointer)(va_list);
 
 	if (format == NULL)
