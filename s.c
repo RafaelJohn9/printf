@@ -7,7 +7,7 @@
  */
 int string(va_list list)
 {
-	char *answer;
+	char *answer = malloc(1024);
 	int len;
 
 	answer = va_arg(list, char *);
