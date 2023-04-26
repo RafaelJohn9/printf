@@ -13,9 +13,9 @@ int _printf(const char *format, ...)
 	int sum = 0;
 	int (*f_pointer)(va_list);
 
-	if (format == NULL)
+	if (format == NULL || *format == '%')
 	{
-		return (0);
+		return (-1);
 	}
 	va_start(list, format);
 	while (format && format[i])
