@@ -6,21 +6,16 @@
  * @holder: holds integer to be converted
  * Return: nothing
  */
-void _print(int holder)
+int _print(int holder)
 {
 	char buffer[32];
 	int i = 0;
-
-	if (holder < 0)
-	{
-		_putchar('-');
-		holder = -holder;
-	}
+	int count = 0;
 
 	if (holder == 0)
 	{
 		_putchar('0');
-		return;
+		return (1);
 	}
 
 	while (holder > 0)
@@ -31,8 +26,10 @@ void _print(int holder)
 
 	while (--i >= 0)
 	{
+		count++;
 		_putchar(buffer[i]);
 	}
+	return (count);
 }
 
 /**
@@ -43,7 +40,6 @@ void _print(int holder)
  */
 int _print_int(const char *str, ...)
 {
-	int count = 0;
 	int holder;
 	va_list list;
 	const char *ptr;
@@ -64,8 +60,7 @@ int _print_int(const char *str, ...)
 			else if (*ptr == 'd' || *ptr == 'i')
 			{
 				holder = va_arg(list, int);
-				_print(holder);
-				count++;
+				return(_print(holder));
 			}
 			else
 			{
@@ -75,9 +70,8 @@ int _print_int(const char *str, ...)
 		else
 		{
 			_putchar(*ptr);
-			count++;
 		}
 	}
 	va_end(list);
-	return (count);
+	return (0);
 }

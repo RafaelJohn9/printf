@@ -49,6 +49,7 @@ int printint(va_list list)
 	{
 		write(1, "-", 1);
 		holder = -holder;
+		return (_print_int("%d", holder) + 1);
 	}
 
 	return (_print_int("%d", holder));
